@@ -1,0 +1,58 @@
+.toc {
+  position: sticky;
+  top: 128px;
+  padding: 24px;
+  background-color: var(--surface-container-low);
+  border-radius: 8px;
+}
+
+.toc h3 {
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  margin-bottom: 16px;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--on-surface);
+}
+
+.toc h3 .material-symbols-outlined {
+  color: var(--primary);
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 4px; /* match ml-1 */
+  border-left: 1px solid rgba(220, 193, 184, 0.4); /* outline-variant/40 */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.toc li {
+  padding-left: 16px; /* pl-4 */
+  border-left: 2px solid transparent;
+  transition: border-color 0.2s;
+  line-height: 1.4;
+  margin-left: -1px; /* overlap the border */
+}
+
+.toc li:hover,
+.toc li:has(a:hover) {
+  border-left-color: var(--primary);
+}
+
+.toc a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+  font-family: var(--body-font-family);
+}
+
+.toc a:hover {
+  color: var(--primary);
+}

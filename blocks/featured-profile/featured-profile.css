@@ -1,0 +1,58 @@
+.featured-profile .featured-profile-container {
+  padding: 20px;
+  background-color: var(--surface-container-lowest);
+  border-radius: 8px;
+  border: 1px solid rgba(220, 193, 184, 0.1); /* border-outline-variant/10 */
+}
+
+.featured-profile h4 {
+  font-family: var(--heading-font-family);
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--on-surface);
+}
+
+.featured-profile .profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.featured-profile .profile-image {
+  font-size: 0; /* remove default vertical spacing around images */
+}
+
+.featured-profile .profile-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.featured-profile .profile-name-role {
+  display: flex;
+  flex-direction: column;
+}
+
+.featured-profile .profile-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.featured-profile .profile-role {
+  font-size: 10px;
+  color: var(--secondary);
+  opacity: 0.7;
+  margin: 0;
+}
+
+.featured-profile .profile-quote {
+  font-size: 12px;
+  color: var(--secondary);
+  font-style: italic;
+  margin: 0;
+}

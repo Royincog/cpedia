@@ -12,16 +12,65 @@
 
 :root {
   /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --surface-variant: #e3e3dc;
+  --on-primary-fixed-variant: #7e2c0e;
+  --background: #fbf9f2;
+  --on-primary: #ffffff;
+  --tertiary-fixed-dim: #6cd7d8;
+  --on-secondary: #ffffff;
+  --on-surface: #1b1c18;
+  --secondary-container: #e2dfda;
+  --inverse-surface: #30312c;
+  --surface-bright: #fbf9f2;
+  --secondary: #5f5e5a;
+  --error-container: #ffdad6;
+  --outline: #89726b;
+  --outline-variant: #dcc1b8;
+  --inverse-on-surface: #f2f1ea;
+  --surface-container-highest: #e3e3dc;
+  --surface-tint: #9d4324;
+  --on-tertiary-fixed: #002020;
+  --surface-dim: #dbdad3;
+  --surface-container-high: #e9e8e1;
+  --inverse-primary: #ffb59d;
+  --on-tertiary: #ffffff;
+  --tertiary: #006768;
+  --on-primary-container: #fffbff;
+  --on-tertiary-container: #f3fffe;
+  --surface-container-lowest: #ffffff;
+  --tertiary-fixed: #89f4f4;
+  --tertiary-container: #008283;
+  --primary-fixed: #ffdbd0;
+  --on-surface-variant: #56423c;
+  --surface-container-low: #f5f4ed;
+  --on-secondary-container: #64635e;
+  --on-error: #ffffff;
+  --on-tertiary-fixed-variant: #004f50;
+  --error: #ba1a1a;
+  --surface: #fbf9f2;
+  --primary-fixed-dim: #ffb59d;
+  --secondary-fixed-dim: #c9c6c1;
+  --surface-container: #efeee7;
+  --primary-container: #b95837;
+  --on-primary-fixed: #390b00;
+  --on-background: #1b1c18;
+  --on-error-container: #93000a;
+  --on-secondary-fixed-variant: #474743;
+  --secondary-fixed: #e5e2dd;
+  --primary: #9a4021;
+  --on-secondary-fixed: #1c1c19;
+
+  /* legacy fallback colors */
+  --background-color: var(--surface);
+  --light-color: var(--surface-container);
+  --dark-color: var(--on-surface);
+  --text-color: var(--secondary);
+  --link-color: var(--primary);
+  --link-hover-color: var(--primary-fixed-dim);
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'Inter', sans-serif;
+  --heading-font-family: 'Newsreader', serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -38,6 +87,26 @@
 
   /* nav height */
   --nav-height: 64px;
+  /* typography variables for Material Symbols */
+  --icon-fill: 0;
+  --icon-weight: 200;
+  --icon-grad: 0;
+  --icon-opsz: 24;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' var(--icon-fill), 'wght' var(--icon-weight), 'GRAD' var(--icon-grad), 'opsz' var(--icon-opsz);
 }
 
 /* fallback fonts */
@@ -112,8 +181,16 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
+h1 { 
+  font-size: var(--heading-font-size-xxl); 
+  color: var(--on-surface);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+h2 { 
+  font-size: var(--heading-font-size-xl); 
+  color: var(--on-surface-variant);
+}
 h3 { font-size: var(--heading-font-size-l); }
 h4 { font-size: var(--heading-font-size-m); }
 h5 { font-size: var(--heading-font-size-s); }
@@ -322,4 +399,82 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+/* Manuscript Layout (Article + Right Sidebar) */
+main .section.manuscript > div {
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+@media (width >= 1024px) {
+  main .section.manuscript > div {
+    flex-direction: row;
+    gap: 48px;
+  }
+}
+
+main .section.manuscript .default-content-wrapper {
+  flex: 1;
+}
+
+main .section.manuscript .default-content-wrapper h1 + p {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--secondary);
+  font-style: italic;
+  border-bottom: 1px solid var(--outline-variant);
+  padding-bottom: 16px;
+  margin-bottom: 48px;
+}
+
+/* Drop-cap for the first paragraph after the header matter */
+main .section.manuscript .default-content-wrapper h1 + p + p::first-letter {
+  font-size: 4rem;
+  font-family: var(--heading-font-family);
+  color: var(--primary);
+  float: left;
+  margin-right: 12px;
+  margin-top: 8px;
+  line-height: 1;
+}
+
+main .section.manuscript .default-content-wrapper picture {
+  display: block;
+  margin: 32px 0 8px;
+}
+
+/* Try to style the image inside the picture if needed, though they respond normally */
+main .section.manuscript .default-content-wrapper picture img {
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05); /* Tailwind shadow-sm */
+  filter: grayscale(0.2) contrast(0.9);
+}
+
+/* caption paragraph natively appearing after image */
+main .section.manuscript .default-content-wrapper p:has(picture) + p {
+  text-align: center;
+  font-size: 12px;
+  color: var(--secondary);
+  font-style: italic;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+/* Sidebar Wrapper Layout */
+main .section.manuscript .aside-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+@media (width >= 1024px) {
+  main .section.manuscript .aside-wrapper {
+    width: 256px; /* Similar to w-64 */
+  }
 }

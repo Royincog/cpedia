@@ -1,0 +1,30 @@
+.tags {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(220, 193, 184, 0.3);
+}
+
+.tags ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.tags li {
+  padding: 4px 12px;
+  background-color: rgba(95, 94, 90, 0.1);
+  color: var(--secondary);
+  font-size: 12px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.tags li:first-child {
+  background-color: rgba(0, 103, 104, 0.1);
+  color: var(--tertiary);
+}

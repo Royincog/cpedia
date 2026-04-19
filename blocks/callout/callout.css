@@ -1,0 +1,23 @@
+.callout.block .callout-container {
+  padding: 20px;
+  background-color: rgba(154, 64, 33, 0.05); /* primary/5 */
+  border-radius: 8px;
+  border: 1px solid rgba(154, 64, 33, 0.1); /* primary/10 */
+}
+
+.callout.block .callout-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 4px 0;
+  line-height: 1.5;
+}
+
+.callout.block .callout-desc {
+  font-size: 12px;
+  line-height: 1.625; /* relaxed */
+  color: var(--secondary);
+  margin: 0;
+}

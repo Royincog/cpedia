@@ -1,0 +1,30 @@
+{
+  "name": "projects/17712121066925329573",
+  "projectId": "17712121066925329573",
+  "title": "Cpedia",
+  "visibility": "PRIVATE",
+  "createTime": "2026-04-19T04:39:51.536885Z",
+  "updateTime": "2026-04-19T04:46:03.368969Z",
+  "projectType": "PROJECT_DESIGN",
+  "origin": "STITCH",
+  "deviceType": "DESKTOP",
+  "designTheme": {
+      "colorMode": "LIGHT",
+      "font": "NEWSREADER",
+      "roundness": "ROUND_FOUR",
+      "customColor": "#c96442"
+  },
+  "screens": {
+    "wikipedia-claude": {
+        "id": "1d125dc3e12b443b8846bebf4d64445d",
+        "sourceScreen": "projects/17712121066925329573/screens/1d125dc3e12b443b8846bebf4d64445d",
+        "x": 2368,
+        "y": 0,
+        "width": 1280,
+        "height": 2994
+    }
+  },
+  "metadata": {
+    "userRole": "OWNER"
+  }
+}
