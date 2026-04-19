@@ -1,0 +1,116 @@
+/* Sidenav Block Styles */
+main .sidenav {
+  /* Hide standard block margin, this will be positioned fixed on md+ */
+  margin: 0;
+}
+
+main .sidenav .sidenav-wrapper {
+  display: none; /* hidden on mobile by default */
+  background-color: var(--surface-container-low);
+  height: 100vh;
+  width: 256px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-top: var(--nav-height, 80px);
+  z-index: 40; /* Below header */
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  main .sidenav .sidenav-wrapper {
+    display: block;
+  }
+}
+
+main .sidenav .sidenav-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  height: calc(100% - var(--nav-height, 80px));
+}
+
+/* Title Group */
+main .sidenav .sidenav-title-group {
+  margin-bottom: 16px;
+}
+
+main .sidenav .sidenav-title {
+  font-family: var(--heading-font-family);
+  font-size: var(--body-font-size-m);
+  color: var(--secondary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+main .sidenav .sidenav-subtitle {
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  text-transform: uppercase;
+  margin: 4px 0 0 0;
+}
+
+/* Primary Nav */
+main .sidenav .sidenav-primary-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Secondary Nav (footer) */
+main .sidenav .sidenav-secondary-nav {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Links */
+main .sidenav .sidenav-link {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  letter-spacing: 0.025em;
+  color: var(--secondary);
+  padding: 8px 16px;
+  border-left: 2px solid transparent;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+main .sidenav .sidenav-link.active {
+  border-left-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+main .sidenav .sidenav-link:hover:not(.active) {
+  background-color: var(--surface-bright);
+  color: var(--primary);
+}
+
+main .sidenav .sidenav-link.secondary {
+  /* Specific override for secondary footer nav */
+  padding-left: 16px;
+  border-left: none;
+  font-weight: 400;
+}
+
+main .sidenav .sidenav-link.secondary:hover {
+  background-color: transparent;
+  color: var(--primary);
+}
+
+/* Icons within links */
+main .sidenav .sidenav-link .icon {
+  font-size: 14px;
+  height: 14px;
+  width: 14px;
+  opacity: 0.8;
+}
