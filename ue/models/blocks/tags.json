@@ -1,0 +1,55 @@
+{
+  "definitions": [
+    {
+      "title": "Tags",
+      "id": "tags",
+      "model": "tags",
+      "filter": "tags",
+      "plugins": {
+        "da": {
+          "name": "tags",
+          "rows": 1,
+          "columns": 1
+        }
+      }
+    },
+    {
+      "title": "Tag",
+      "id": "tag",
+      "model": "tag",
+      "plugins": {
+        "da": {
+          "name": "tag",
+          "rows": 1,
+          "columns": 1,
+          "fields": [
+            {
+              "name": "label",
+              "selector": "div:nth-child(1)"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "tag",
+      "fields": [
+        {
+          "component": "text",
+          "name": "label",
+          "label": "Label"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "tags",
+      "components": [
+        "tag"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "definitions": [
+    {
+      "title": "Featured Profile",
+      "id": "featured-profile",
+      "model": "featured-profile",
+      "plugins": {
+        "da": {
+          "name": "featured-profile",
+          "rows": 5,
+          "columns": 1,
+          "fields": [
+            {
+              "name": "title",
+              "selector": "div:nth-child(1)"
+            },
+            {
+              "name": "image",
+              "selector": "div:nth-child(2)>div picture img[src]"
+            },
+            {
+              "name": "imageAlt",
+              "selector": "div:nth-child(2)>div picture img[alt]"
+            },
+            {
+              "name": "name",
+              "selector": "div:nth-child(3)"
+            },
+            {
+              "name": "role",
+              "selector": "div:nth-child(4)"
+            },
+            {
+              "name": "quote",
+              "selector": "div:nth-child(5)"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "featured-profile",
+      "fields": [
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Title"
+        },
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Image",
+          "multi": false
+        },
+        {
+          "component": "text",
+          "name": "imageAlt",
+          "label": "Image Alt"
+        },
+        {
+          "component": "text",
+          "name": "name",
+          "label": "Name"
+        },
+        {
+          "component": "text",
+          "name": "role",
+          "label": "Role"
+        },
+        {
+          "component": "text",
+          "name": "quote",
+          "label": "Quote"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

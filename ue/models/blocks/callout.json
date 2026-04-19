@@ -1,0 +1,44 @@
+{
+  "definitions": [
+    {
+      "title": "Callout",
+      "id": "callout",
+      "model": "callout",
+      "plugins": {
+        "da": {
+          "name": "callout",
+          "rows": 2,
+          "columns": 1,
+          "fields": [
+            {
+              "name": "title",
+              "selector": "div:nth-child(1)"
+            },
+            {
+              "name": "description",
+              "selector": "div:nth-child(2)"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "callout",
+      "fields": [
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Title"
+        },
+        {
+          "component": "text",
+          "name": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

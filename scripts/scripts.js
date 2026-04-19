@@ -186,9 +186,22 @@ async function loadPage() {
   loadDelayed();
 }
 
+// UE Editor support before page load
+if (/\.(stage-ue|ue)\.da\.live$/.test(window.location.hostname)) {
+  // eslint-disable-next-line import/no-unresolved
+  await import(`${window.hlx.codeBasePath}/ue/scripts/ue.js`).then(({ default: ue }) => ue());
+}
+
 loadPage();
-//Script for live preview
-(async function loadDa() {
-  if (!new URL(window.location.href).searchParams.get('dapreview')) return;
-  import('https://da.live/scripts/dapreview.js').then(({ default: daPreview }) => daPreview(loadPage));
+
+(function da() {
+  const { searchParams } = new URL(window.location.href);
+
+  const lp = searchParams.get('dapreview');
+  // eslint-disable-next-line import/no-unresolved
+  if (lp) import('https://da.live/scripts/dapreview.js').then((mod) => mod.default(loadPage));
+
+  const exp = searchParams.get('daexperiment');
+  // eslint-disable-next-line import/no-unresolved
+  if (exp) import('https://da.live/nx/public/plugins/exp/exp.js');
 }());

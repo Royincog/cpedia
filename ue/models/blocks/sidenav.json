@@ -1,0 +1,56 @@
+{
+  "definitions": [
+    {
+      "title": "Sidenav",
+      "id": "sidenav",
+      "model": "sidenav",
+      "plugins": {
+        "da": {
+          "name": "sidenav",
+          "rows": 3,
+          "columns": 1,
+          "fields": [
+            {
+              "name": "titleArea",
+              "selector": "div:nth-child(1)"
+            },
+            {
+              "name": "primaryNav",
+              "selector": "div:nth-child(2)"
+            },
+            {
+              "name": "secondaryNav",
+              "selector": "div:nth-child(3)"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "sidenav",
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "titleArea",
+          "label": "Title Area",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "primaryNav",
+          "label": "Primary Navigation",
+          "valueType": "string"
+        },
+        {
+          "component": "richtext",
+          "name": "secondaryNav",
+          "label": "Secondary Navigation",
+          "valueType": "string"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

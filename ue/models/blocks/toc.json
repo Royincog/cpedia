@@ -1,0 +1,35 @@
+{
+  "definitions": [
+    {
+      "title": "Table of Contents",
+      "id": "toc",
+      "model": "toc",
+      "plugins": {
+        "da": {
+          "name": "toc",
+          "rows": 1,
+          "columns": 1,
+          "fields": [
+            {
+              "name": "heading",
+              "selector": "div:nth-child(1)"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "toc",
+      "fields": [
+        {
+          "component": "text",
+          "name": "heading",
+          "label": "Heading"
+        }
+      ]
+    }
+  ],
+  "filters": []
+}

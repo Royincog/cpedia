@@ -1,0 +1,59 @@
+{
+  "definitions": [
+    {
+      "title": "Section",
+      "id": "section",
+      "plugins": {
+        "da": {
+          "unsafeHTML": "<div></div>"
+        }
+      },
+      "filter": "section",
+      "model": "section"
+    }
+  ],
+  "models": [
+    {
+      "id": "section",
+      "fields": [
+        {
+          "component": "multiselect",
+          "name": "style",
+          "label": "Style",
+          "options": [
+            {
+              "name": "Light",
+              "value": "light"
+            },
+            {
+              "name": "Highlight",
+              "value": "highlight"
+            },
+            {
+              "name": "Manuscript",
+              "value": "manuscript"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "section",
+      "components": [
+        "callout",
+        "cards",
+        "columns",
+        "featured-profile",
+        "fragment",
+        "hero",
+        "image",
+        "sidenav",
+        "tags",
+        "text",
+        "toc"
+      ]
+    }
+  ]
+}

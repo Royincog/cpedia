@@ -1,8 +1,9 @@
 export default function decorate(block) {
+  const headingText = block.textContent.trim() || 'Contents';
   const tocNav = document.createElement('nav');
   
   const tocHeading = document.createElement('h3');
-  tocHeading.innerHTML = `<span class="material-symbols-outlined text-primary">menu_book</span> Contents`;
+  tocHeading.innerHTML = `<span class="material-symbols-outlined text-primary">menu_book</span> ${headingText}`;
   tocNav.append(tocHeading);
   
   const ul = document.createElement('ul');

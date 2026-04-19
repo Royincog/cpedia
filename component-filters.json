@@ -1,0 +1,53 @@
+[
+  {
+    "id": "main",
+    "components": [
+      "section"
+    ]
+  },
+  {
+    "id": "section",
+    "components": [
+      "callout",
+      "cards",
+      "columns",
+      "featured-profile",
+      "fragment",
+      "hero",
+      "image",
+      "sidenav",
+      "tags",
+      "text",
+      "toc"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": [
+      "columns-row"
+    ]
+  },
+  {
+    "id": "columns-row",
+    "components": []
+  },
+  {
+    "id": "columns-cell",
+    "components": [
+      "text",
+      "image"
+    ]
+  },
+  {
+    "id": "tags",
+    "components": [
+      "tag"
+    ]
+  }
+]

@@ -1,0 +1,319 @@
+{
+  "groups": [
+    {
+      "title": "Default Content",
+      "id": "default",
+      "components": [
+        {
+          "title": "Text",
+          "id": "text",
+          "model": "text",
+          "plugins": {
+            "da": {
+              "name": "text",
+              "type": "text"
+            }
+          }
+        },
+        {
+          "title": "Image",
+          "id": "image",
+          "model": "image",
+          "plugins": {
+            "da": {
+              "name": "image",
+              "type": "image",
+              "fields": [
+                {
+                  "name": "image",
+                  "selector": "img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "img[alt]"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": "Sections",
+      "id": "sections",
+      "components": [
+        {
+          "title": "Section",
+          "id": "section",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div></div>"
+            }
+          },
+          "filter": "section",
+          "model": "section"
+        }
+      ]
+    },
+    {
+      "title": "Blocks",
+      "id": "blocks",
+      "components": [
+        {
+          "title": "Callout",
+          "id": "callout",
+          "model": "callout",
+          "plugins": {
+            "da": {
+              "name": "callout",
+              "rows": 2,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)"
+                },
+                {
+                  "name": "description",
+                  "selector": "div:nth-child(2)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Cards",
+          "id": "cards",
+          "model": "cards",
+          "filter": "cards",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Card",
+          "id": "card",
+          "model": "card",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2,
+              "fields": [
+                {
+                  "name": "image",
+                  "selector": "div:nth-child(1)>picture>img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div:nth-child(1)>picture>img[alt]"
+                },
+                {
+                  "name": "text",
+                  "selector": "div:nth-child(2)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Columns",
+          "id": "columns",
+          "model": "columns",
+          "filter": "columns",
+          "plugins": {
+            "da": {
+              "name": "columns",
+              "rows": 1,
+              "columns": 2,
+              "behaviour": "columns"
+            }
+          }
+        },
+        {
+          "title": "Columns Row",
+          "id": "columns-row",
+          "model": "columns-row",
+          "filter": "columns-row",
+          "plugins": {
+            "da": {
+              "name": "columns-row",
+              "behaviour": "columns-row"
+            }
+          }
+        },
+        {
+          "title": "Columns Cell",
+          "id": "columns-cell",
+          "model": "columns-cell",
+          "filter": "columns-cell",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div></div>",
+              "behaviour": "columns-cell"
+            }
+          }
+        },
+        {
+          "title": "Featured Profile",
+          "id": "featured-profile",
+          "model": "featured-profile",
+          "plugins": {
+            "da": {
+              "name": "featured-profile",
+              "rows": 5,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "title",
+                  "selector": "div:nth-child(1)"
+                },
+                {
+                  "name": "image",
+                  "selector": "div:nth-child(2)>div picture img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div:nth-child(2)>div picture img[alt]"
+                },
+                {
+                  "name": "name",
+                  "selector": "div:nth-child(3)"
+                },
+                {
+                  "name": "role",
+                  "selector": "div:nth-child(4)"
+                },
+                {
+                  "name": "quote",
+                  "selector": "div:nth-child(5)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Fragment",
+          "id": "fragment",
+          "model": "fragment",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"fragment\"><div><div><p><a href=\"\">Fragment URL</a></p></div></div></div>",
+              "fields": [
+                {
+                  "name": "url",
+                  "selector": "div>div>p>a[href]"
+                },
+                {
+                  "name": "urlText",
+                  "selector": "div>div>p>a"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Hero",
+          "id": "hero",
+          "model": "hero",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"hero\"><div><div><picture><source type=\"image/webp\" srcset=\"\"><source type=\"image/jpeg\" srcset=\"\"><img loading=\"lazy\"></picture><h1></h1></div></div></div>",
+              "fields": [
+                {
+                  "name": "image",
+                  "selector": "div>div>picture>img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div>div>picture>img[alt]"
+                },
+                {
+                  "name": "text",
+                  "selector": "div>div>h1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Sidenav",
+          "id": "sidenav",
+          "model": "sidenav",
+          "plugins": {
+            "da": {
+              "name": "sidenav",
+              "rows": 3,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "titleArea",
+                  "selector": "div:nth-child(1)"
+                },
+                {
+                  "name": "primaryNav",
+                  "selector": "div:nth-child(2)"
+                },
+                {
+                  "name": "secondaryNav",
+                  "selector": "div:nth-child(3)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Tags",
+          "id": "tags",
+          "model": "tags",
+          "filter": "tags",
+          "plugins": {
+            "da": {
+              "name": "tags",
+              "rows": 1,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Tag",
+          "id": "tag",
+          "model": "tag",
+          "plugins": {
+            "da": {
+              "name": "tag",
+              "rows": 1,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "label",
+                  "selector": "div:nth-child(1)"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "title": "Table of Contents",
+          "id": "toc",
+          "model": "toc",
+          "plugins": {
+            "da": {
+              "name": "toc",
+              "rows": 1,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "heading",
+                  "selector": "div:nth-child(1)"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
