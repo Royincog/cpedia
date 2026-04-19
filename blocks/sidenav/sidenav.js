@@ -52,8 +52,16 @@ export default async function decorate(block) {
     
     const ul = navCol.querySelector('ul');
     if (ul) {
-      const links = ul.querySelectorAll('a');
-      links.forEach((a, i) => {
+      const listItems = ul.querySelectorAll('li');
+      listItems.forEach((li, i) => {
+        let a = li.querySelector('a');
+        if (!a) {
+          a = document.createElement('a');
+          a.href = '#';
+          a.innerHTML = li.innerHTML;
+        } else {
+          // If the anchor doesn't contain all of li's content (like an icon outside), we could move it, but for primary nav it's usually just text.
+        }
         const isActive = i === 0; // First defaults to active for demo or could use pathname match
         a.className = isActive ? 'sidenav-link active' : 'sidenav-link';
         nav.append(a);
@@ -72,17 +80,44 @@ export default async function decorate(block) {
     if (ul) {
       const listItems = ul.querySelectorAll('li');
       listItems.forEach((li) => {
-        const a = li.querySelector('a');
-        if (a) {
-          a.className = 'sidenav-link secondary';
-          
+        let a = li.querySelector('a');
+        
+        // If no link authored, wrap everything in a link
+        if (!a) {
+          a = document.createElement('a');
+          a.href = '#';
+          a.innerHTML = li.innerHTML;
+        } else {
+          // If there is an icon outside the anchor, move it inside
           const icon = li.querySelector('.icon');
-          if (icon) {
-             a.prepend(icon);
+          if (icon && !a.contains(icon)) {
+            a.prepend(icon);
           }
           
-          footNav.append(a);
+          // Also grab any stray text nodes outside the anchor if they exist, 
+          // like in case of `• :help: Help` -> `<li><span icon/> <a/>Text</li>`
+          Array.from(li.childNodes).forEach(child => {
+            if (child !== a && child.textContent.trim()) {
+              a.append(child);
+            }
+          });
         }
+        
+        a.className = 'sidenav-link secondary';
+        
+        // Safety check to ensure icon exists inside
+        const icon = a.querySelector('.icon');
+        if (icon) {
+          // It's already inside, but we can ensure it's at the front if needed
+          a.prepend(icon);
+          
+          if (!a.textContent.trim()) {
+            if (icon.className.includes('help')) a.append(' Help');
+            if (icon.className.includes('volunteer_activism')) a.append(' Donate');
+          }
+        }
+
+        footNav.append(a);
       });
     }
     

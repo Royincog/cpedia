@@ -15,6 +15,7 @@ main .sidenav .sidenav-wrapper {
   padding-top: var(--nav-height, 80px);
   z-index: 40; /* Below header */
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -28,7 +29,8 @@ main .sidenav .sidenav-container {
   flex-direction: column;
   gap: 24px;
   padding: 24px;
-  height: calc(100% - var(--nav-height, 80px));
+  height: 100%;
+  box-sizing: border-box;
 }
 
 /* Title Group */
@@ -113,4 +115,13 @@ main .sidenav .sidenav-link .icon {
   height: 14px;
   width: 14px;
   opacity: 0.8;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main .sidenav .sidenav-link .icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
