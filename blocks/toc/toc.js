@@ -1,6 +1,7 @@
 export default function decorate(block) {
   const headingText = block.textContent.trim() || 'Contents';
   const tocNav = document.createElement('nav');
+  const section = block.closest('.section');
   
   const tocHeading = document.createElement('h3');
   tocHeading.innerHTML = `<span class="material-symbols-outlined text-primary">menu_book</span> ${headingText}`;
@@ -8,8 +9,9 @@ export default function decorate(block) {
   
   const ul = document.createElement('ul');
   
-  // Need to get h2s from the main document, not from within the aside
-  const headings = document.querySelectorAll('main .section:not(.aside-wrapper) h2');
+  const headings = section
+    ? section.querySelectorAll('.default-content-wrapper h2')
+    : document.querySelectorAll('main h2');
   
   headings.forEach((h2, index) => {
     if (h2.closest('.toc')) return; // ignore our own h2 just in case

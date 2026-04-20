@@ -113,6 +113,84 @@ function decorateButtons(main) {
   });
 }
 
+function normalizeManuscriptLayout(main) {
+  const sidebarWrappers = [
+    '.toc-wrapper',
+    '.featured-profile-wrapper',
+    '.callout-wrapper',
+  ].join(', ');
+  const isSidebarWrapper = (wrapper) => wrapper.matches(sidebarWrappers);
+
+  const rebuildManuscriptSection = (hostSection, sourceSections) => {
+    const articleWrapper = document.createElement('div');
+    articleWrapper.className = 'default-content-wrapper';
+
+    const asideWrapper = document.createElement('div');
+    asideWrapper.className = 'aside-wrapper';
+
+    sourceSections.forEach((section) => {
+      [...section.children].forEach((wrapper) => {
+        if (wrapper.classList.contains('aside-wrapper')) {
+          [...wrapper.children].forEach((child) => {
+            if (isSidebarWrapper(child)) {
+              asideWrapper.append(child);
+            } else {
+              articleWrapper.append(child);
+            }
+          });
+          return;
+        }
+
+        if (isSidebarWrapper(wrapper)) {
+          asideWrapper.append(wrapper);
+          return;
+        }
+
+        if (wrapper.classList.contains('default-content-wrapper')) {
+          articleWrapper.append(...wrapper.childNodes);
+          return;
+        }
+
+        articleWrapper.append(wrapper);
+      });
+    });
+
+    hostSection.classList.add('manuscript');
+    hostSection.replaceChildren(articleWrapper);
+    if (asideWrapper.children.length) {
+      hostSection.append(asideWrapper);
+    }
+
+    sourceSections
+      .filter((section) => section !== hostSection)
+      .forEach((section) => section.remove());
+  };
+
+  const sections = [...main.querySelectorAll(':scope > .section')];
+  const manuscriptSections = sections.filter((section) => section.classList.contains('manuscript'));
+
+  if (manuscriptSections.length) {
+    manuscriptSections.forEach((section) => rebuildManuscriptSection(section, [section]));
+    return;
+  }
+
+  const sidenavSection = sections.find((section) => section.querySelector('.sidenav'));
+  const articleSections = sections.filter((section) => section !== sidenavSection);
+  const hasSidebarContent = articleSections.some((section) => [...section.children].some(isSidebarWrapper));
+
+  if (!sidenavSection || !articleSections.length || !hasSidebarContent) return;
+
+  rebuildManuscriptSection(articleSections[0], articleSections);
+}
+
+function arrangeManuscriptLayout(main) {
+  main.querySelectorAll('.section.manuscript').forEach((section) => {
+    const asideWrapper = section.querySelector(':scope > .aside-wrapper');
+    if (!asideWrapper || asideWrapper.children.length) return;
+    asideWrapper.remove();
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -123,6 +201,8 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  normalizeManuscriptLayout(main);
+  arrangeManuscriptLayout(main);
   decorateButtons(main);
 }
 

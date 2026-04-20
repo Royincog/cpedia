@@ -417,22 +417,39 @@ main .section.highlight {
 }
 
 /* Manuscript Layout (Article + Right Sidebar) */
-main .section.manuscript > div {
+main .section.manuscript {
   max-width: 1400px;
+  margin-inline: auto;
+  padding: 0 24px;
   display: flex;
   flex-direction: column;
   gap: 48px;
 }
 
 @media (width >= 1024px) {
-  main .section.manuscript > div {
+  main .section.manuscript {
     flex-direction: row;
-    gap: 48px;
+    align-items: flex-start;
   }
+}
+
+@media (width >= 900px) {
+  main .section.manuscript {
+    padding: 0 32px;
+  }
+}
+
+main .section.manuscript > div {
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 main .section.manuscript .default-content-wrapper {
   flex: 1;
+  min-width: 0;
+  width: 100%;
+  max-width: 720px;
 }
 
 main .section.manuscript .default-content-wrapper h1 + p {
@@ -491,5 +508,6 @@ main .section.manuscript .aside-wrapper {
 @media (width >= 1024px) {
   main .section.manuscript .aside-wrapper {
     width: 256px; /* Similar to w-64 */
+    flex: 0 0 256px;
   }
 }
