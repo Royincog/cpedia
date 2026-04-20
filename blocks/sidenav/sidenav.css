@@ -4,6 +4,16 @@ main .sidenav {
   margin: 0;
 }
 
+body.has-sidenav {
+  --sidenav-width: 256px;
+}
+
+@media (min-width: 768px) {
+  body.has-sidenav main {
+    margin-inline-start: var(--sidenav-width);
+  }
+}
+
 main .sidenav .sidenav-wrapper {
   display: none; /* hidden on mobile by default */
   background-color: var(--surface-container-low);

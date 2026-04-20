@@ -6,6 +6,7 @@ import { decorateIcons } from '../../scripts/aem.js';
  */
 export default async function decorate(block) {
   const rows = [...block.children];
+  document.body.classList.add('has-sidenav');
   
   const aside = document.createElement('aside');
   aside.className = 'sidenav-wrapper';
