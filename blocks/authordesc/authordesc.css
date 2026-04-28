@@ -1,6 +1,6 @@
 main .authordesc {
   padding: 1.25rem;
-  background-color: var(--surface-container-lowest, #ffffff);
+  background-color: var(--surface-container-lowest, #fff);
   border-radius: 0.5rem;
   border: 1px solid var(--outline-variant, #dcc1b8);
   margin-bottom: 2rem;

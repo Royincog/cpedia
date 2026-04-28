@@ -9,6 +9,7 @@
     "id": "section",
     "components": [
       "callout",
+      "authordesc",
       "cards",
       "columns",
       "featured-profile",
