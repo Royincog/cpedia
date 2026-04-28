@@ -20,7 +20,7 @@ export default function decorate(block) {
 
   const profileHeader = document.createElement('div');
   profileHeader.className = 'profile-header';
-  
+
   if (picture) {
     const imgWrapper = document.createElement('div');
     imgWrapper.className = 'profile-image';
@@ -30,7 +30,7 @@ export default function decorate(block) {
 
   const nameRoleWrapper = document.createElement('div');
   nameRoleWrapper.className = 'profile-name-role';
-  
+
   if (name) {
     const pName = document.createElement('p');
     pName.className = 'profile-name';
@@ -48,7 +48,7 @@ export default function decorate(block) {
   if (name || role) {
     profileHeader.append(nameRoleWrapper);
   }
-  
+
   if (profileHeader.children.length > 0) {
     container.append(profileHeader);
   }
