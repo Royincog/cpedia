@@ -48,12 +48,12 @@ export default async function decorate(block) {
       const iconName = Array.from(icon.classList)
         .find((c) => c.startsWith('icon-'))
         ?.replace('icon-', '');
-      
+
       let materialIcon = iconName;
       // Map standard icons to material icons if needed
       if (iconName === 'button') materialIcon = 'history';
       if (iconName === 'setting') materialIcon = 'settings';
-      
+
       const btn = document.createElement('button');
       btn.className = 'tool-btn material-symbols-outlined';
       btn.setAttribute('aria-label', materialIcon);

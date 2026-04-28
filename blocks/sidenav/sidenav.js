@@ -7,10 +7,10 @@ import { decorateIcons } from '../../scripts/aem.js';
 export default async function decorate(block) {
   const rows = [...block.children];
   document.body.classList.add('has-sidenav');
-  
+
   const aside = document.createElement('aside');
   aside.className = 'sidenav-wrapper';
-  
+
   const container = document.createElement('div');
   container.className = 'sidenav-container';
   aside.append(container);
@@ -19,7 +19,7 @@ export default async function decorate(block) {
     const titleCol = rows[0].children[0];
     const titleDiv = document.createElement('div');
     titleDiv.className = 'sidenav-title-group';
-    
+
     const h2 = titleCol.querySelector('h2, h1, h3, h4');
     if (h2) {
       h2.className = 'sidenav-title';
@@ -35,14 +35,14 @@ export default async function decorate(block) {
         titleCol.innerHTML = '';
       }
     }
-    
+
     if (titleCol.textContent.trim()) {
       const p = document.createElement('p');
       p.className = 'sidenav-subtitle';
       p.textContent = titleCol.textContent.trim();
       titleDiv.append(p);
     }
-    
+
     container.append(titleDiv);
   }
 
@@ -50,7 +50,7 @@ export default async function decorate(block) {
     const navCol = rows[1].children[0];
     const nav = document.createElement('nav');
     nav.className = 'sidenav-primary-nav';
-    
+
     const ul = navCol.querySelector('ul');
     if (ul) {
       const listItems = ul.querySelectorAll('li');
@@ -68,7 +68,7 @@ export default async function decorate(block) {
         nav.append(a);
       });
     }
-    
+
     container.append(nav);
   }
 
@@ -76,13 +76,13 @@ export default async function decorate(block) {
     const footCol = rows[2].children[0];
     const footNav = document.createElement('div');
     footNav.className = 'sidenav-secondary-nav';
-    
+
     const ul = footCol.querySelector('ul');
     if (ul) {
       const listItems = ul.querySelectorAll('li');
       listItems.forEach((li) => {
         let a = li.querySelector('a');
-        
+
         // If no link authored, wrap everything in a link
         if (!a) {
           a = document.createElement('a');
@@ -94,24 +94,24 @@ export default async function decorate(block) {
           if (icon && !a.contains(icon)) {
             a.prepend(icon);
           }
-          
-          // Also grab any stray text nodes outside the anchor if they exist, 
+
+          // Also grab any stray text nodes outside the anchor if they exist,
           // like in case of `• :help: Help` -> `<li><span icon/> <a/>Text</li>`
-          Array.from(li.childNodes).forEach(child => {
+          Array.from(li.childNodes).forEach((child) => {
             if (child !== a && child.textContent.trim()) {
               a.append(child);
             }
           });
         }
-        
+
         a.className = 'sidenav-link secondary';
-        
+
         // Safety check to ensure icon exists inside
         const icon = a.querySelector('.icon');
         if (icon) {
           // It's already inside, but we can ensure it's at the front if needed
           a.prepend(icon);
-          
+
           if (!a.textContent.trim()) {
             if (icon.className.includes('help')) a.append(' Help');
             if (icon.className.includes('volunteer_activism')) a.append(' Donate');
@@ -121,10 +121,10 @@ export default async function decorate(block) {
         footNav.append(a);
       });
     }
-    
+
     container.append(footNav);
   }
-  
+
   block.replaceChildren(aside);
   await decorateIcons(aside);
 }
