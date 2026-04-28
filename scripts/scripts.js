@@ -116,6 +116,7 @@ function decorateButtons(main) {
 function normalizeManuscriptLayout(main) {
   const sidebarWrappers = [
     '.toc-wrapper',
+    '.authordesc-wrapper',
     '.featured-profile-wrapper',
     '.callout-wrapper',
   ].join(', ');
@@ -176,7 +177,9 @@ function normalizeManuscriptLayout(main) {
 
   const sidenavSection = sections.find((section) => section.querySelector('.sidenav'));
   const articleSections = sections.filter((section) => section !== sidenavSection);
-  const hasSidebarContent = articleSections.some((section) => [...section.children].some(isSidebarWrapper));
+  const hasSidebarContent = articleSections.some(
+    (section) => [...section.children].some(isSidebarWrapper),
+  );
 
   if (!sidenavSection || !articleSections.length || !hasSidebarContent) return;
 

@@ -61,7 +61,7 @@ export default async function decorate(block) {
           a.href = '#';
           a.innerHTML = li.innerHTML;
         } else {
-          // If the anchor doesn't contain all of li's content (like an icon outside), we could move it, but for primary nav it's usually just text.
+          // Primary nav items are expected to already be simple linked text.
         }
         const isActive = i === 0; // First defaults to active for demo or could use pathname match
         a.className = isActive ? 'sidenav-link active' : 'sidenav-link';
